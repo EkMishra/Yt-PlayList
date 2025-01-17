@@ -19,15 +19,17 @@ const getPlaylistData = async (playlistId) => {
       };
       // console.log(youtube.playlistItems.list(params));
       const res = await youtube.playlistItems.list(params);
-        console.log(`Response from playlistItems.list:`, res.data.items[0].contentDetails);
+        // console.log(`Response from playlistItems.list:`, res.data.items[0].contentDetails);
       const playlistItems = [...res.data.items];
-
+      // console.log(playlistItems);
       playlistItems.forEach((object) => {
         videoIdList.push(object.contentDetails.videoId);
       });
-      nextPageToken = res.data.nextPageToken;
+      console.log(nextPageToken)
+      nextPageToken = res.data.nextPageToken || null;
       totalVideos = res.data.pageInfo.totalResults;
     } while (nextPageToken);
+    console.log("ok")
 
     return { videoIdList, totalVideos };
   } catch (err) {

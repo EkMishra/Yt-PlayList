@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors"
 import morgan from "morgan";
 import googleapis from "googleapis";
 import dotenv from "dotenv/config";
@@ -8,9 +9,15 @@ const API_KEY = process.env.API_KEY;
 const app = express();
 const regex = /[\?&]list=([^&]+)/;
 
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 app.get("/", (req, res) => {
   console.log("ok");
