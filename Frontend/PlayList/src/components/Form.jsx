@@ -13,7 +13,7 @@ export default function Form() {
     e.preventDefault();
     setLoading(true)
     try {
-      const response = await fetch("http://localhost:3000/submit", {
+      const response = await fetch("http://localhost:3000/submit-playlist-url", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
