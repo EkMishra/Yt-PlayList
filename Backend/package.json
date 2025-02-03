@@ -1,15 +1,16 @@
 {
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "googleapis": "^142.0.0",
+    "groq-sdk": "^0.12.0",
     "luxon": "^3.5.0",
     "morgan": "^1.10.0",
     "youtubei.js": "^12.2.0"
   },
-  
   "name": "playlist",
   "version": "1.0.0",
   "main": "app.js",

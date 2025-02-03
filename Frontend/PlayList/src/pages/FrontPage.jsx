@@ -1,6 +1,6 @@
 import React,{createContext, useState} from "react";
-import Form from "./Form";
-import TimeBlock from "./TimeBlock";
+import PlaylistForm from "../components/PlaylistForm";
+import TimeBlock from "../components/TimeBlock";
 
 export const DataContext = createContext()
 
@@ -12,7 +12,7 @@ export default function FrontPage(){
   
   return(
     <DataContext.Provider value={{fetchedData,setFetchedData,loading,setLoading}}>
-      <Form/> 
+      <PlaylistForm/> 
       <TimeBlock/>
     </DataContext.Provider>
   )

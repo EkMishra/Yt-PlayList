@@ -5,7 +5,7 @@ import googleapis from "googleapis";
 import dotenv from "dotenv/config";
 import { youtubeData } from "./utils/googleApi.js";
 import { getTranscript } from "./utils/transcript.js";
-import { getSummarizedResult } from "./utils/summarize.js";
+import {main } from "./utils/summarize.js";
 
 const PORT = process.env.PORT;
 const API_KEY = process.env.API_KEY;
@@ -71,7 +71,7 @@ app.post("/submit-video-url", async (req, res) => {
     const videoId = match[1];
     const ytTranscript = await getTranscript(videoId);
     console.log(ytTranscript);
-    const summarizedResult = await getSummarizedResult(ytTranscript);
+    const summarizedResult = await main(ytTranscript);
     res.status(200).json({
       status: "success",
       data: {
